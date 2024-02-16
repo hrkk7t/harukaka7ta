@@ -12,7 +12,7 @@ body {
   }
   
   img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     vertical-align: bottom;
     border-style: none;
@@ -134,3 +134,17 @@ body {
   .gnav-item a:hover:after {
     width: 100%;
   }
+
+   /*--------------------------------
+   フッター
+  ---------------------------------*/
+  .footer {
+    padding: 30px;
+    background-color: #83ccd2;
+  }
+  
+  .copyright {
+    font-size: 10px;
+    text-align: center;
+    color: #333;
+  }  
