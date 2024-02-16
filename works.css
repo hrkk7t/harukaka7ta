@@ -12,7 +12,7 @@ body {
   }
   
   img {
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
     vertical-align: bottom;
     border-style: none;
