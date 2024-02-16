@@ -135,6 +135,22 @@ body {
     width: 100%;
   }
 
+ /*--------------------------------
+   ページトップ
+  ---------------------------------*/
+  .page-top {
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #c1e4e9;
+  }
+  
+  .page-top .material-icons-outlined {
+    vertical-align: bottom;
+    color: #fff;
+  }
+
    /*--------------------------------
    フッター
   ---------------------------------*/
