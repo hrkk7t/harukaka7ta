@@ -502,6 +502,27 @@ body {
     }
   
     /* Works */
+
+    .category-list{
+      font-size: small;
+    }
+
+    .logo {
+      display: block;
+    }
+
+    .illust {
+      display: block;
+    }
+
+    .chara {
+      display: block;
+    }
+
+    .other {
+      display: block;
+    }
+
     .works-name {
       font-size: 12px;
     }
@@ -689,6 +710,27 @@ body {
     }
   
     /* Works */
+
+    .category-list{
+      font-size: small;
+    }
+
+    .logo {
+      display: block;
+    }
+
+    .illust {
+      display: block;
+    }
+
+    .chara {
+      display: block;
+    }
+
+    .other {
+      display: block;
+    }
+
     .works-name {
       font-size: 12px;
     }
