@@ -141,8 +141,69 @@ body {
   .sub {
     text-align: center;
   }
+
+  .category-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
   
-  .works-list {
+  .category-item:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .category-item a {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    transition: .3s;
+    letter-spacing: .05em;
+    color: #333;
+  }
+  .category-item a:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    content: "";
+    transition: .3s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #333;
+  }
+  
+  .category-item a:hover:after {
+    width: 100%;
+  }
+
+  .logo {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -20px;
+  }
+
+  .illust {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -20px;
+  }
+
+  .chara {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -20px;
+  }
+
+  .other {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -20px;
+  }
+
+   .works-list {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: -40px;
