@@ -504,8 +504,7 @@ body {
     /* Works */
 
     .category-list{
-      text-align: center;
-      font-size: small;
+      display: none;
     }
 
     .logo {
@@ -713,8 +712,7 @@ body {
     /* Works */
 
     .category-list{
-      text-align: center;
-      font-size: small;
+      display: none;
     }
 
     .logo {
