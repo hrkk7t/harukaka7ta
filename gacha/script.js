@@ -50,9 +50,13 @@ function setupEventListeners() {
         
         isPlaying = true;
 
+        // ▼▼▼ 抜けていた2行をここに戻しました ▼▼▼
+        gachaHandle.classList.add('rotating');
+
         setTimeout(() => {
+            gachaHandle.classList.remove('rotating');
             createCapsule();
-        }, 300);
+        }, 500); // CSSのアニメーション時間(0.5s)と合わせる
     });
 
     resultOverlay.addEventListener('click', () => {
@@ -107,24 +111,17 @@ function openResult() {
     const selectedMenu = menuList[randomIndex];
 
     menuResultDiv.textContent = selectedMenu;
-
-    // ▼▼▼ 文字サイズを自動調整する処理をここに追加 ▼▼▼
     adjustFontSize(menuResultDiv);
-
     resultOverlay.classList.remove('hidden');
 }
 
-// ★★★ 新しく追加した関数 ★★★
-// 文字がはみ出していたら、収まるまでフォントサイズを小さくする
 function adjustFontSize(element) {
-    // スタイルをリセットして、コンテナの最大幅を取得
     element.style.fontSize = ''; 
     const parentWidth = element.parentElement.clientWidth;
     let currentSize = parseFloat(window.getComputedStyle(element).fontSize);
 
-    // 文字の幅がコンテナの幅を超える限りループ
     while (element.scrollWidth > parentWidth && currentSize > 10) {
-        currentSize -= 1; // 1pxずつ小さくする
+        currentSize -= 1;
         element.style.fontSize = currentSize + 'px';
     }
 }
