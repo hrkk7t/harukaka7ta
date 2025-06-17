@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>今日の献立ガチャ</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+
     <button id="open-admin-button">⚙️</button>
 
     <div id="main-content">
@@ -18,6 +23,11 @@
                 <div class="dummy-capsule c3"></div>
                 <div class="dummy-capsule c4"></div>
                 <div class="dummy-capsule c5"></div>
+                <div class="dummy-capsule c6"></div>
+                <div class="dummy-capsule c7"></div>
+                <div class="dummy-capsule c8"></div>
+                <div class="dummy-capsule c9"></div>
+                <div class="dummy-capsule c10"></div>
             </div>
             <p class="instruction-text">ハンドルを回して献立を決める！👇</p>
             <div id="gacha-handle">
@@ -29,9 +39,15 @@
 
     <div id="result-overlay" class="hidden">
         <div id="result-box" class="result-box">
-            <p>今日の献立は...</p>
-            <div id="menu-result" class="result-title"></div>
-            <p>に決まり！</p>
+            <div class="card-header">
+                <p>今日の献立</p>
+            </div>
+            <div class="card-body">
+                <div id="menu-result" class="result-title"></div>
+                <div class="stamp-container">
+                    <div class="stamp">決定</div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -49,7 +65,7 @@
         </div>
     </div>
 
-     <script src="script.js"></script>
+    <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

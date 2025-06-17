@@ -1,8 +1,7 @@
 // --- グローバル変数とDOM要素の定義 ---
 let isPlaying = false;
-let menuList = []; // 献立リストを保持する配列
+let menuList = [];
 
-// DOM要素
 const gachaHandle = document.getElementById('gacha-handle');
 const capsuleContainer = document.getElementById('capsule-container');
 const resultOverlay = document.getElementById('result-overlay');
@@ -27,7 +26,6 @@ function loadMenuList() {
     if (savedMenuList) {
         menuList = JSON.parse(savedMenuList);
     } else {
-        // 初回起動時のデフォルト献立リスト
         menuList = ["カレー", "ハンバーグ", "唐揚げ", "パスタ", "ラーメン", "お寿司", "肉じゃが", "生姜焼き"];
         saveMenuList();
     }
@@ -38,7 +36,6 @@ function saveMenuList() {
 }
 
 function updateAdminPanel() {
-    // 配列を改行区切りのテキストに変換してtextareaに表示
     menuListInput.value = menuList.join('\n');
 }
 
@@ -74,7 +71,6 @@ function setupEventListeners() {
     });
 
     saveSettingsButton.addEventListener('click', () => {
-        // textareaの内容を改行で分割し、空の行は除外して配列にする
         const newMenuList = menuListInput.value.split('\n').filter(item => item.trim() !== '');
         
         if (newMenuList.length === 0) {
@@ -97,7 +93,6 @@ function createCapsule() {
     const capsule = document.createElement('div');
     capsule.classList.add('capsule');
     
-    // カプセルの色をランダムに決める
     const randomColor = capsuleColors[Math.floor(Math.random() * capsuleColors.length)];
     capsule.classList.add(randomColor);
     
@@ -110,11 +105,9 @@ function createCapsule() {
 }
 
 function openResult() {
-    // 献立リストからランダムに1つ選ぶ
     const randomIndex = Math.floor(Math.random() * menuList.length);
     const selectedMenu = menuList[randomIndex];
 
-    // 結果を表示
     menuResultDiv.textContent = selectedMenu;
     resultOverlay.classList.remove('hidden');
 }
