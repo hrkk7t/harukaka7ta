@@ -3,32 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ガチャガチャ</title>
+    <title>今日の献立ガチャ</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-
     <button id="open-admin-button">⚙️</button>
 
     <div id="main-content">
         <div id="gacha-machine">
             <div id="gacha-window">
-                <div id="stock-display">
-                    残り: <span id="stock-count">?</span> 個
-                </div>
                 <div class="dummy-capsule c1"></div>
                 <div class="dummy-capsule c2"></div>
                 <div class="dummy-capsule c3"></div>
                 <div class="dummy-capsule c4"></div>
                 <div class="dummy-capsule c5"></div>
-                <div class="dummy-capsule c6"></div>
-                <div class="dummy-capsule c7"></div>
-                <div class="dummy-capsule c8"></div>
-                <div class="dummy-capsule c9"></div>
-                <div class="dummy-capsule c10"></div>
             </div>
-            <p class="instruction-text">ハンドルを回して引いてね！👇</p>
+            <p class="instruction-text">ハンドルを回して献立を決める！👇</p>
             <div id="gacha-handle">
                 <div class="handle-grip"></div>
             </div>
@@ -37,52 +27,36 @@
     </div>
 
     <div id="result-overlay" class="hidden">
-        <div id="super-win-content" class="result-box hidden">
-            <div class="result-title win">🎉 超大当たり 🎉</div>
-            <div class="sparkle-container">
-                <div class="sparkle"></div><div class="sparkle"></div>
-                <div class="sparkle"></div><div class="sparkle"></div>
-            </div>
-            <p>おめでとう！すごい！</p>
-        </div>
-
-        <div id="normal-win-content" class="result-box hidden">
-            <div class="result-title normal-win">✨ 当たり ✨</div>
-            <p>おめでとう！</p>
-        </div>
-
-        <div id="lose-content" class="result-box hidden">
-            <div class="result-title lose">ざんねん…</div>
-            <div class="rain-container">
-                <div class="rain">💧</div><div class="rain">💧</div>
-                <div class="rain">💧</div><div class="rain">💧</div>
-            </div>
+        <div id="result-box" class="result-box">
+            <p>今日の献立は...</p>
+            <div id="menu-result" class="result-title"></div>
+            <p>に決まり！</p>
         </div>
     </div>
     
     <div id="admin-panel" class="hidden">
         <div class="panel-content">
-            <h2>⚙️ 設定</h2>
+            <h2>献立リストの編集</h2>
             <div class="form-group">
-                <label for="super-win-rate-input">大当たり確率 (%)</label>
-                <input type="number" id="super-win-rate-input" min="0" max="100">
-            </div>
-            <div class="form-group">
-                <label for="win-rate-input">(通常)当たり確率 (%)</label>
-                <input type="number" id="win-rate-input" min="0" max="100">
-            </div>
-            <div class="form-group">
-                <label for="total-capsules-input">カプセル総数 (在庫)</label>
-                <input type="number" id="total-capsules-input" min="0">
+                <label for="menu-list-input">1行に1メニューずつ入力してください</label>
+                <textarea id="menu-list-input" rows="10"></textarea>
             </div>
             <div class="form-buttons">
                 <button id="save-settings-button">保存する</button>
                 <button id="close-admin-button">閉じる</button>
             </div>
-             <p class="form-note">※保存すると在庫数はリセットされます</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(reg => {
+                    console.log('Service worker registered.', reg);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
