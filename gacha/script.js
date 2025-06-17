@@ -50,13 +50,14 @@ function setupEventListeners() {
         
         isPlaying = true;
 
-        // ▼▼▼ 抜けていた2行をここに戻しました ▼▼▼
+        // ハンドルを回転させる命令
         gachaHandle.classList.add('rotating');
 
         setTimeout(() => {
+            // 回転アニメーションが終わったらクラスを削除
             gachaHandle.classList.remove('rotating');
             createCapsule();
-        }, 500); // CSSのアニメーション時間(0.5s)と合わせる
+        }, 500); // 0.5秒（CSSのアニメーション時間と合わせる）
     });
 
     resultOverlay.addEventListener('click', () => {
