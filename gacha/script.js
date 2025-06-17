@@ -26,7 +26,7 @@ function loadMenuList() {
     if (savedMenuList) {
         menuList = JSON.parse(savedMenuList);
     } else {
-        menuList = ["カレー", "ハンバーグ", "唐揚げ", "パスタ", "ラーメン", "お寿司", "肉じゃが", "生姜焼き"];
+        menuList = ["カレーライス", "ハンバーグステーキ", "鶏の唐揚げ", "ミートソースパスタ", "豚骨ラーメン", "お寿司の盛り合わせ", "肉じゃが", "豚の生姜焼き"];
         saveMenuList();
     }
 }
@@ -49,12 +49,10 @@ function setupEventListeners() {
         }
         
         isPlaying = true;
-        gachaHandle.classList.add('rotating');
 
         setTimeout(() => {
-            gachaHandle.classList.remove('rotating');
             createCapsule();
-        }, 500);
+        }, 300);
     });
 
     resultOverlay.addEventListener('click', () => {
@@ -109,7 +107,26 @@ function openResult() {
     const selectedMenu = menuList[randomIndex];
 
     menuResultDiv.textContent = selectedMenu;
+
+    // ▼▼▼ 文字サイズを自動調整する処理をここに追加 ▼▼▼
+    adjustFontSize(menuResultDiv);
+
     resultOverlay.classList.remove('hidden');
+}
+
+// ★★★ 新しく追加した関数 ★★★
+// 文字がはみ出していたら、収まるまでフォントサイズを小さくする
+function adjustFontSize(element) {
+    // スタイルをリセットして、コンテナの最大幅を取得
+    element.style.fontSize = ''; 
+    const parentWidth = element.parentElement.clientWidth;
+    let currentSize = parseFloat(window.getComputedStyle(element).fontSize);
+
+    // 文字の幅がコンテナの幅を超える限りループ
+    while (element.scrollWidth > parentWidth && currentSize > 10) {
+        currentSize -= 1; // 1pxずつ小さくする
+        element.style.fontSize = currentSize + 'px';
+    }
 }
 
 // --- アプリケーションの実行開始 ---
